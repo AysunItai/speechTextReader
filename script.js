@@ -85,7 +85,7 @@ const message =new SpeechSynthesisUtterance();
 
 let voices=[];
 function getVoices(){
-  voices=speechSynthesis.getVoices();
+  voices=window.speechSynthesis.getVoices();
   voices.forEach(voice => {
     const option=document.createElement("option");
     option.value=voice.name;
@@ -99,7 +99,7 @@ function setTextMessage(text){
 }
 
 function speakText(){
-  speechSynthesis.speak(message);
+  window.speechSynthesis.speak(message);
 }
 
 function setVoice(e){
@@ -107,7 +107,7 @@ function setVoice(e){
 
 }
 
-speechSynthesis.addEventListener('voiceschanged', getVoices)
+window.speechSynthesis.addEventListener('voiceschanged', getVoices)
 
 toggleBtn.addEventListener('click', _ =>
  document.getElementById('text-box').classList.toggle("show"));
